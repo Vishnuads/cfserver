@@ -163,77 +163,77 @@ import StageUnrealFilmography from "./Routes/StageUnreal/StageUnrealFilmography.
 // ✅ Serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+
 // ✅ Auth
-app.use("/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use("/api/payphi", payphiRoutes);
 
-app.use("/payment", paymentDetailes);
+app.use("/api/payment", paymentDetailes);
 
-app.use("/faqs", faqRoutes);
+app.use("/api/faqs", faqRoutes);
 
 // ✅ Register routes
-app.use("/homebanner", HomeBanner);
-app.use("/exclusive", HomeExclusive);
-app.use("/videos", VideoRoutes);
-app.use("/mentors", MentorRoutes);
-app.use("/homefilmography", HomeFilmography);
-app.use("/videogallerybanner", videoGalleryBannerRoute);
+app.use("/api/homebanner", HomeBanner);
+app.use("/api/exclusive", HomeExclusive);
+app.use("/api/videos", VideoRoutes);
+app.use("/api/mentors", MentorRoutes);
+app.use("/api/homefilmography", HomeFilmography);
+app.use("/api/videogallerybanner", videoGalleryBannerRoute);
 
-app.use("/directionbanner", DirectionBanner);
-app.use("/directionhighlights", DirectionHighlights);
-app.use("/directiondiploma", DirectionDiploma);
-app.use("/directionmentor", DirectionMentor);
-app.use("/directionfilmography", DirectionFilmography);
+app.use("/api/directionbanner", DirectionBanner);
+app.use("/api/directionhighlights", DirectionHighlights);
+app.use("/api/directiondiploma", DirectionDiploma);
+app.use("/api/directionmentor", DirectionMentor);
+app.use("/api/directionfilmography", DirectionFilmography);
 
-app.use("/actingbanner", ActingBanner);
-app.use("/actingmentor", ActingMentor);
-app.use("/actingdiploma", ActingDiploma);
+app.use("/api/actingbanner", ActingBanner);
+app.use("/api/actingmentor", ActingMentor);
+app.use("/api/actingdiploma", ActingDiploma);
 
-app.use("/cinematographybanner", CinematographyBanner);
-app.use("/cinematographyhighlights", CinematographyHighlights);
-app.use("/cinematographydiploma", CinematographyDiploma);
-app.use("/cinematographymentor", CinematographyMentor);
-app.use("/cinematographyfilmography", CinematographyFilmography);
+app.use("/api/cinematographybanner", CinematographyBanner);
+app.use("/api/cinematographyhighlights", CinematographyHighlights);
+app.use("/api/cinematographydiploma", CinematographyDiploma);
+app.use("/api/cinematographymentor", CinematographyMentor);
+app.use("/api/cinematographyfilmography", CinematographyFilmography);
 
-app.use("/dibanner", DiBanner);
-app.use("/dihighlights", DiHighlights);
-app.use("/dimentor", DiMentor);
-app.use("/difilmography", DiFilmography);
-app.use("/didiploma", DiDiploma);
+app.use("/api/dibanner", DiBanner);
+app.use("/api/dihighlights", DiHighlights);
+app.use("/api/dimentor", DiMentor);
+app.use("/api/difilmography", DiFilmography);
+app.use("/api/didiploma", DiDiploma);
 
-app.use("/editingbanner", EditingBanner);
-app.use("/editinghighlights", EditingHighlights);
-app.use("/editingdiploma", EditingDiploma);
-app.use("/editingmentor", EditingMentor);
-app.use("/editingfilmography", EditingFilmography);
+app.use("/api/editingbanner", EditingBanner);
+app.use("/api/editinghighlights", EditingHighlights);
+app.use("/api/editingdiploma", EditingDiploma);
+app.use("/api/editingmentor", EditingMentor);
+app.use("/api/editingfilmography", EditingFilmography);
 
-app.use("/photographybanner", PhotographyBanner);
-app.use("/photographymentor", PhotographyMentor);
-app.use("/photographyfilmography", PhotographyFilmography);
-app.use("/photographydiploma", PhotographyDiploma);
+app.use("/api/photographybanner", PhotographyBanner);
+app.use("/api/photographymentor", PhotographyMentor);
+app.use("/api/photographyfilmography", PhotographyFilmography);
+app.use("/api/photographydiploma", PhotographyDiploma);
 
-app.use("/vfxbanner", VfxBanner);
-app.use("/vfxhighlights", VfxHighlights);
-app.use("/vfxdiploma", VfxDiploma);
-app.use("/vfxmentor", VfxMentor);
-app.use("/vfxfilmography", VfxFilmography);
+app.use("/api/vfxbanner", VfxBanner);
+app.use("/api/vfxhighlights", VfxHighlights);
+app.use("/api/vfxdiploma", VfxDiploma);
+app.use("/api/vfxmentor", VfxMentor);
+app.use("/api/vfxfilmography", VfxFilmography);
 
-app.use("/virtualproductionbanner", VirtualProductionBanner);
-app.use("/virtualproductionmentor", VirtualProductionMentor);
-app.use("/virtualproductionfilmography", VirtualProductionFilmography);
-app.use("/virtualproductiondiploma", VirtualProductionDiploma);
+app.use("/api/virtualproductionbanner", VirtualProductionBanner);
+app.use("/api/virtualproductionmentor", VirtualProductionMentor);
+app.use("/api/virtualproductionfilmography", VirtualProductionFilmography);
+app.use("/api/virtualproductiondiploma", VirtualProductionDiploma);
 
-app.use("/cfabanner", CfaBanner);
-app.use("/cfadiploma", CfaDiploma);
-app.use("/cfamentor", CfaMentor);
-app.use("/cfafilmography", CfaFilmography);
+app.use("/api/cfabanner", CfaBanner);
+app.use("/api/cfadiploma", CfaDiploma);
+app.use("/api/cfamentor", CfaMentor);
+app.use("/api/cfafilmography", CfaFilmography);
 
-app.use("/stageunrealbanner", StageUnrealBanner);
-app.use("/stageunrealdiploma", StageUnrealDiploma);
-app.use("/stageunrealmentor", StageUnrealMentor);
-app.use("/stageunrealfilmography", StageUnrealFilmography);
-
+app.use("/api/stageunrealbanner", StageUnrealBanner);
+app.use("/api/stageunrealdiploma", StageUnrealDiploma);
+app.use("/api/stageunrealmentor", StageUnrealMentor);
+app.use("/api/stageunrealfilmography", StageUnrealFilmography);
 // ✅ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
