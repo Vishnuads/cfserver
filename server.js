@@ -16,7 +16,7 @@ const app = express();
 
 // ✅ Middleware
 app.use(
-  cors({
+  cors({  
     origin: [
        "https://cf-admin.vercel.app",
   "https://cf-user.vercel.app",
@@ -29,7 +29,10 @@ app.use(
   "https://qa.phicommerce.com",
   "https://payphi.com",
   "http://localhost:5173",
-  "http://localhost:3000"
+  "http://localhost:3000",
+   "http://localhost:3001",
+    // "https://admin.cinemafactoryacademy.com",
+
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // 👈 add PATCH & OPTIONS
     credentials: true,
@@ -49,9 +52,14 @@ const allowedOrigins = [
   "https://qa.phicommerce.com",
   "https://payphi.com",
   "http://localhost:5173",
-  "http://localhost:3000"
+  "http://localhost:3000",
+   "http://localhost:3001",
+//  "https://admin.cinemafactoryacademy.com",
+ null,        // IMPORTANT for payment gateways
+  "null"       // IMPORTANT for payment gateways
 ];
 
+     
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -81,7 +89,7 @@ if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
 
 // ✅ Test route
 app.get("/", (req, res) => {
-  res.send("Backend is runningg 🚀");
+  res.send("Backend is runninggg 🚀");
 });
 
 //=================
@@ -159,13 +167,11 @@ import StageUnrealBanner from "./Routes/StageUnreal/StageUnrealBanner.js";
 import StageUnrealDiploma from "./Routes/StageUnreal/StageUnrealDiploma.js";
 import StageUnrealMentor from "./Routes/StageUnreal/StageUnrealMentor.js";
 import StageUnrealFilmography from "./Routes/StageUnreal/StageUnrealFilmography.js";
-
+  
 // ✅ Serve uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-
-
-// ✅ Auth
+         
+// ✅ Auth      
 app.use("/auth", authRoutes);
 
 app.use("/api/payphi", payphiRoutes);
@@ -234,7 +240,9 @@ app.use("/cfafilmography", CfaFilmography);
 app.use("/stageunrealbanner", StageUnrealBanner);
 app.use("/stageunrealdiploma", StageUnrealDiploma);
 app.use("/stageunrealmentor", StageUnrealMentor);
-app.use("/stageunrealfilmography", StageUnrealFilmography);// ✅ MongoDB connection
+app.use("/stageunrealfilmography", StageUnrealFilmography);
+
+// ✅ MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
@@ -244,7 +252,7 @@ mongoose
     // process.exit(1);
   });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
