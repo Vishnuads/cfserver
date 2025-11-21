@@ -30,7 +30,7 @@ app.use(
   "http://localhost:5173",
   "http://localhost:3000",
    "http://localhost:3001",
-    // "https://admin.cinemafactoryacademy.com",
+   "https://api.cinemafactoryacademy.com",
 
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // 👈 add PATCH & OPTIONS
@@ -53,7 +53,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
    "http://localhost:3001",
-//  "https://admin.cinemafactoryacademy.com",
+ "https://api.cinemafactoryacademy.com",
  null,        // IMPORTANT for payment gateways
   "null"       // IMPORTANT for payment gateways
 ];
