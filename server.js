@@ -14,30 +14,17 @@ dotenv.config();
 const app = express();
 
 
-
 app.use(
   cors({
-    origin: [
-       "https://cf-admin.vercel.app",
-  "https://cf-user.vercel.app",
-  "https://admin.cinemafactory.co.in",
-  "https://user.cinemafactory.co.in",
+  origin: [
   "https://www.cinemafactoryacademy.com",
-  "https://cinemafactoryacademy.com",
-  "https://cinemafactory.co.in",
-  "https://www.cinemafactory.co.in",
-  "https://qa.phicommerce.com",
-  "https://payphi.com",
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "http://localhost:3001",
-  null,     
-  "null"
+  "https://cinemafactoryacademy.com"
     ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // 👈 add PATCH & OPTIONS
     credentials: true,
   })
 );
+
 
 
 
