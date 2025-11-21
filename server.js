@@ -181,7 +181,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 // ✅ Auth      
 app.use("/auth", authRoutes);
 
-app.use("/api/payphi", payphiRoutes);
+// app.use("/api/payphi", payphiRoutes);
+app.use("/payphi", payphiRoutes);
 
 app.use("/payment", paymentDetailes);
 
