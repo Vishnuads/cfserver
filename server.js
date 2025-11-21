@@ -14,32 +14,7 @@ dotenv.config();
 const app = express();
 
 
-// ✅ Middleware
-app.use(
-  cors({  
-    origin: [
-       "https://cf-admin.vercel.app",
-  "https://cf-user.vercel.app",
-  "https://admin.cinemafactory.co.in",
-  "https://user.cinemafactory.co.in",
-  "https://www.cinemafactoryacademy.com",
-  "https://cinemafactoryacademy.com",
-  "https://cinemafactory.co.in",
-  "https://www.cinemafactory.co.in",
-  "https://qa.phicommerce.com",
-  "https://payphi.com",
-  "http://localhost:5173",
-  "http://localhost:3000",
-   "http://localhost:3001",
-    // "https://admin.cinemafactoryacademy.com",
-
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // 👈 add PATCH & OPTIONS
-    credentials: true,
-  })
-);
-
-
+// allowed origins list
 const allowedOrigins = [
   "https://cf-admin.vercel.app",
   "https://cf-user.vercel.app",
@@ -53,32 +28,25 @@ const allowedOrigins = [
   "https://payphi.com",
   "http://localhost:5173",
   "http://localhost:3000",
-   "http://localhost:3001",
-//  "https://admin.cinemafactoryacademy.com",
- null,        // IMPORTANT for payment gateways
-  "null"       // IMPORTANT for payment gateways
+  "http://localhost:3001",
+  null,   // allow no-origin server-to-server calls (e.g., payment callbacks)
+  "null"
 ];
 
-     
 app.use(
   cors({
     origin: function (origin, callback) {
-      // ✅ Allow server-to-server requests with no Origin (PayPhi callbacks)
+      // allow requests with no origin (like server-to-server or mobile)
       if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        console.log(`✅ CORS allowed for: ${origin}`);
-        callback(null, true);
-      } else {
-        console.log(`❌ CORS blocked for: ${origin}`);
-        callback(new Error("CORS policy: Not allowed by origin"));
-      }
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error("CORS blocked by origin: " + origin));
     },
     credentials: true,
-     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -89,7 +57,7 @@ if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
 
 // ✅ Test route
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.send("Backend is runningg 🚀");
 });
 
 //=================
