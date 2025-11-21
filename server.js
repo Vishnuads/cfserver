@@ -95,8 +95,8 @@ app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
-app.get("/payphi/initiatet", (req, res) => {
-  res.send("Backend is runningg 🚀");
+app.get("/api/payphi/initiate", (req, res) => {
+  res.send("Backend is running 🚀");
 });
 
 //=================
