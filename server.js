@@ -14,9 +14,11 @@ dotenv.config();
 const app = express();
 
 
-// allowed origins list
-const allowedOrigins = [
-  "https://cf-admin.vercel.app",
+
+app.use(
+  cors({
+    origin: [
+       "https://cf-admin.vercel.app",
   "https://cf-user.vercel.app",
   "https://admin.cinemafactory.co.in",
   "https://user.cinemafactory.co.in",
@@ -29,23 +31,14 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:3000",
   "http://localhost:3001",
-  null,   // allow no-origin server-to-server calls (e.g., payment callbacks)
+  null,     
   "null"
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like server-to-server or mobile)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
-      return callback(new Error("CORS blocked by origin: " + origin));
-    },
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"], // 👈 add PATCH & OPTIONS
     credentials: true,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
+
 
 
 app.use(express.json());
@@ -57,7 +50,7 @@ if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
 
 // ✅ Test route
 app.get("/", (req, res) => {
-  res.send("Backend is runningg 🚀");
+  res.send("Backend is running 🚀");
 });
 
 //=================
