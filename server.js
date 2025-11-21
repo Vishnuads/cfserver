@@ -89,7 +89,7 @@ if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR);
 
 // ✅ Test route
 app.get("/", (req, res) => {
-  res.send("Backend is runninggg 🚀");
+  res.send("Backend is running 🚀");
 });
 
 //=================
